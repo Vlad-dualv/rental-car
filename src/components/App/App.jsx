@@ -1,12 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import Header from "../Header/Header";
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const Catalog = lazy(() => import("../../pages/Catalog/Catalog"));
 const CarDetails = lazy(() => import("../../pages/CarDetails/CarDetails"));
 const NotFoundPage = lazy(() =>
   import("../../pages/NotFoundPage/NotFoundPage")
 );
-import Header from "../Header/Header";
+import "./App.css";
 
 export default function App() {
   return (
