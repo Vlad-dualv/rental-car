@@ -1,0 +1,24 @@
+.catalogSection {
+  padding: 0px 120px;
+  text-align: center;
+}
+
+.loadButton {
+  width: 156px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid #3470ff;
+  padding: 12px;
+  background-color: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+
+  transition: all 200ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-color: #0b44cd;
+  }
+}

@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "../../redux/cars/operations";
 import { selectError, selectLoading } from "../../redux/cars/slice";
-import CarItem from "../../components/CarItem/CarItem";
+import CarList from "../../components/CarList/CarList";
+import css from "./Catalog.module.css";
 
 export default function Catalog() {
   const dispatch = useDispatch();
@@ -14,10 +15,13 @@ export default function Catalog() {
   }, [dispatch]);
 
   return (
-    <div>
+    <section className={css.catalogSection}>
       {isLoading && <p>Loading cars...</p>}
       {error && <p>{error}</p>}
-      <CarItem />
-    </div>
+      <CarList />
+      <button type="button" className={css.loadButton}>
+        Load more
+      </button>
+    </section>
   );
 }
