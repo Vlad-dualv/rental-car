@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
 import css from "./Header.module.css";
+import clsx from "clsx";
 
 export default function Header() {
+  const linkStyle = ({ isActive }) => {
+    return clsx(css.nav, isActive && css.active);
+  };
+
   return (
     <header className={css.header}>
       <div className={css.headerContainer}>
@@ -9,10 +14,10 @@ export default function Header() {
           Rental<span className={css.accentColor}>Car</span>
         </p>
         <nav className={css.nav}>
-          <NavLink to="/" className={css.headerLink}>
+          <NavLink to="/" className={linkStyle}>
             Home
           </NavLink>
-          <NavLink to="/catalog" className={css.headerLink}>
+          <NavLink to="/catalog" className={linkStyle}>
             Catalog
           </NavLink>
         </nav>
