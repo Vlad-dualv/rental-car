@@ -12,4 +12,3 @@ const carsSlice = createSlice({
 });
 
 export const carsReducer = carsSlice.reducer;
-``;
