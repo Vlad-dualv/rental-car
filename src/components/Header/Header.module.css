@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  height: 68px;
+  background-color: #f2f4f7;
+  padding: 20px 120px;
+  margin-bottom: 4px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.accentColor {
+  color: #3470ff;
+}
+
+a {
+  transition: all 200ms ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: #0b44cd;
+}
