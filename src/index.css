@@ -32,8 +32,3 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-.headerLink:hover,
-.headerLink:focus {
-  color: #0b44cd;
-}
