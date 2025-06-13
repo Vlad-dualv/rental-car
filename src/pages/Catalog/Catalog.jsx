@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "../../redux/cars/operations";
 import { selectError, selectLoading } from "../../redux/cars/slice";
+import CarItem from "../../components/CarItem/CarItem";
 
 export default function Catalog() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function Catalog() {
     <div>
       {isLoading && <p>Loading cars...</p>}
       {error && <p>{error}</p>}
-      <h1>Cars</h1>
+      <CarItem />
     </div>
   );
 }
