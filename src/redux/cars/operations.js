@@ -1,15 +1,16 @@
 import axios from "axios";
-import { fetchError, fetchInProgress, fetchSuccess } from "./slice";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://car-rental-api.goit.global/";
 
-export const fetchCars = () => async (dispatch) => {
-  try {
-    dispatch(fetchInProgress());
-    const response = await axios.get("/cars");
-    dispatch(fetchSuccess());
-  } catch (error) {
-    alert(error);
-    dispatch(fetchError(error.message));
+export const fetchCars = createAsyncThunk(
+  "cars/fetchAll",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/cars");
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
   }
-};
+);
