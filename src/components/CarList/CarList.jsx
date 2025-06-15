@@ -1,33 +1,18 @@
 import css from "./CarList.module.css";
+import { useSelector } from "react-redux";
 import CarItem from "../CarItem/CarItem";
+import { selectCars } from "../../redux/cars/slice";
 
 export default function CarList() {
+  const cars = useSelector(selectCars);
+  console.log("cars in CarList:", cars); // <-- see what this logs
   return (
     <ul className={css.carList}>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
-      <li>
-        <CarItem />
-      </li>
+      {cars.map((car) => (
+        <li key={car.id}>
+          <CarItem car={car} />
+        </li>
+      ))}
     </ul>
   );
 }
