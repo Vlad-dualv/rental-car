@@ -5,7 +5,7 @@ import { selectCars } from "../../redux/cars/slice";
 
 export default function CarList() {
   const cars = useSelector(selectCars);
-  console.log("cars in CarList:", cars); // <-- see what this logs
+
   return (
     <ul className={css.carList}>
       {cars.map((car) => (
