@@ -1,6 +1,12 @@
 import css from "./CarItem.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function CarItem({ car }) {
+  const navigate = useNavigate();
+  function goToCarDetails() {
+    navigate(`/catalog/${car.id}`);
+  }
+
   return (
     <div className={css.carItem}>
       <div className={css.carDescription}>
@@ -25,10 +31,15 @@ export default function CarItem({ car }) {
         </p>
         <p className={css.carStats}>
           <span>{car.type}</span>
-          <span>{car.mileage} km</span>
+          <span>
+            {car.mileage.toString().slice(0, 1) +
+              " " +
+              car.mileage.toString().slice(1)}{" "}
+            km
+          </span>
         </p>
       </div>
-      <button type="button" className={css.carButton}>
+      <button type="button" className={css.carButton} onClick={goToCarDetails}>
         Read more
       </button>
     </div>

@@ -1,0 +1,7 @@
+.carDetailsSection {
+  padding: 0px 120px;
+  margin-top: 84px;
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+}

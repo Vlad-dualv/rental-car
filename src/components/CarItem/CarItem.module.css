@@ -4,8 +4,7 @@
   margin-bottom: 48px;
   transition: scale 200ms ease-in-out;
 
-  &:hover,
-  &:focus {
+  &:hover {
     scale: 1.2;
   }
 }
