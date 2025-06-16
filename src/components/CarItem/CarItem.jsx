@@ -31,12 +31,7 @@ export default function CarItem({ car }) {
         </p>
         <p className={css.carStats}>
           <span>{car.type}</span>
-          <span>
-            {car.mileage.toString().slice(0, 1) +
-              " " +
-              car.mileage.toString().slice(1)}{" "}
-            km
-          </span>
+          <span>{car.mileage.toLocaleString("uk-UA")} km</span>
         </p>
       </div>
       <button type="button" className={css.carButton} onClick={goToCarDetails}>
