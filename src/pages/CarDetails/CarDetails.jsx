@@ -7,12 +7,12 @@ import { fetchCarById } from "../../redux/cars/operations";
 import OrderForm from "../../components/OrderForm/OrderForm";
 
 export default function CarDetails() {
-  const iconLocation = "../../../public/sprite.svg#icon-location";
-  const iconCheck = "../../../public/sprite.svg#icon-check-circle";
-  const iconCar = "../../../public/sprite.svg#icon-car";
-  const iconFuel = "../../../public/sprite.svg#icon-fuel-pump";
-  const iconGear = "../../../public/sprite.svg#icon-gear";
-  const iconCalendar = "../../../public/sprite.svg#icon-calendar";
+  const iconLocation = "../../../sprite.svg#icon-location";
+  const iconCheck = "../../../sprite.svg#icon-check-circle";
+  const iconCar = "../../../sprite.svg#icon-car";
+  const iconFuel = "../../../sprite.svg#icon-fuel-pump";
+  const iconGear = "../../../sprite.svg#icon-gear";
+  const iconCalendar = "../../../sprite.svg#icon-calendar";
   const { id } = useParams();
   const dispatch = useDispatch();
   const error = useSelector(selectError);
