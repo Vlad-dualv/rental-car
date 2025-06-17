@@ -2,6 +2,7 @@ import css from "./CarItem.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function CarItem({ car }) {
+  const iconHearth = "../../../sprite.svg#icon-hearth";
   const navigate = useNavigate();
   function goToCarDetails() {
     navigate(`/catalog/${car.id}`);
@@ -10,13 +11,19 @@ export default function CarItem({ car }) {
   return (
     <div className={css.carItem}>
       <div className={css.carDescription}>
-        <img
-          src={car.img}
-          alt="car image"
-          width={275}
-          height={268}
-          className={css.carImage}
-        />
+        <div className={css.imageWrapper}>
+          <img
+            src={car.img}
+            alt="car image"
+            width={275}
+            height={268}
+            className={css.carImage}
+          />
+          <svg className={css.icon} aria-label="hearth icon">
+            <use href={iconHearth}></use>
+          </svg>
+        </div>
+
         <div className={css.mainInfo}>
           <p>
             {car.brand} <span className={css.carModel}>{car.model}</span>,{" "}

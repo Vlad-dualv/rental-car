@@ -17,6 +17,20 @@
   margin-bottom: 16px;
 }
 
+.imageWrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  fill: #f2f4f7;
+  cursor: pointer;
+}
+
 .carDescription {
   margin-bottom: 28px;
 }
