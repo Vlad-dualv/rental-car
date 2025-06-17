@@ -46,10 +46,9 @@ export default function OrderForm() {
           <Field
             type="text"
             name="date"
-            placeholder="Booking date*"
+            placeholder="Booking date"
             className={css.input}
             id={dateFieldId}
-            required
           />
           <Field
             as="textarea"
