@@ -8,12 +8,13 @@ const NotFoundPage = lazy(() =>
   import("../../pages/NotFoundPage/NotFoundPage")
 );
 import "./App.css";
+import Loader from "../Loader/Loader";
 
 export default function App() {
   return (
     <div>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<Catalog />} />

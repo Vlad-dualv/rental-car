@@ -9,6 +9,7 @@ import {
 } from "../../redux/cars/slice";
 import CarList from "../../components/CarList/CarList";
 import css from "./Catalog.module.css";
+import Loader from "../../components/Loader/Loader";
 
 export default function Catalog() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function Catalog() {
 
   return (
     <section className={css.catalogSection}>
-      {isLoading && <p>Loading cars...</p>}
+      {isLoading && <Loader />}
       {error && <p>{error}</p>}
       <CarList />
       {page < totalPages && (

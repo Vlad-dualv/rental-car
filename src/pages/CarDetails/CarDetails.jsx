@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarById } from "../../redux/cars/operations";
 import OrderForm from "../../components/OrderForm/OrderForm";
+import Loader from "../../components/Loader/Loader";
 
 export default function CarDetails() {
   const iconLocation = "../../../sprite.svg#icon-location";
@@ -25,14 +26,20 @@ export default function CarDetails() {
       dispatch(fetchCarById(id));
     }
   }, [car, dispatch, id]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   if (!car) {
     return <p>Car not found</p>;
   }
   return (
     <section className={css.carDetailsSection}>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-
       <div className={css.leftSide}>
         <img src={car.img} alt="car image" width={640} />
         <OrderForm />
