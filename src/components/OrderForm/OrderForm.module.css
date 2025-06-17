@@ -1,0 +1,75 @@
+.orderContainer {
+  padding: 32px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+}
+
+.orderContainer h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  margin-bottom: 8px;
+}
+
+.orderContainer p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #8d929a;
+  margin-bottom: 24px;
+}
+
+.orderForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input {
+  background-color: #f7f7f7;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+}
+
+.input {
+  background-color: #f7f7f7;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+}
+
+.input::placeholder {
+  color: #8d929a;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.commentInput {
+  height: 88px;
+}
+
+.orderButton {
+  width: 156px;
+  margin: 8px auto;
+  padding: 12px;
+  text-align: center;
+  background-color: #3470ff;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  border: none;
+  border-radius: 12px;
+  transition: all 200ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
+}

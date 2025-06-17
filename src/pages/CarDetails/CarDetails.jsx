@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarById } from "../../redux/cars/operations";
+import OrderForm from "../../components/OrderForm/OrderForm";
 
 export default function CarDetails() {
   const iconLocation = "../../../public/sprite.svg#icon-location";
@@ -34,7 +35,7 @@ export default function CarDetails() {
 
       <div className={css.leftSide}>
         <img src={car.img} alt="car image" width={640} />
-        <form action=""></form>
+        <OrderForm />
       </div>
       <div className={css.rightSide}>
         <div className={css.brandAndId}>
