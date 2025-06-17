@@ -51,6 +51,7 @@
 
 .commentInput {
   height: 88px;
+  resize: none;
 }
 
 .orderButton {
