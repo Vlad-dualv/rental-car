@@ -10,6 +10,7 @@ import {
 import CarList from "../../components/CarList/CarList";
 import css from "./Catalog.module.css";
 import Loader from "../../components/Loader/Loader";
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 export default function Catalog() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ export default function Catalog() {
   return (
     <>
       <section className={css.catalogSection}>
+        <SearchForm />
         <CarList />
         {page < totalPages && (
           <button
