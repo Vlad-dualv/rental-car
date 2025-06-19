@@ -1,8 +1,10 @@
+import clsx from "clsx";
 import css from "./CarItem.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function CarItem({ car }) {
-  const iconHearth = "../../../sprite.svg#icon-hearth";
+  const iconHearth = "/symbol-defs.svg#icon-Vector-2";
+  const activeHearth = "/symbol-defs.svg#icon-Vector-1";
   const navigate = useNavigate();
   function goToCarDetails() {
     navigate(`/catalog/${car.id}`);
@@ -19,6 +21,7 @@ export default function CarItem({ car }) {
             height={268}
             className={css.carImage}
           />
+
           <svg className={css.icon} aria-label="hearth icon">
             <use href={iconHearth}></use>
           </svg>
