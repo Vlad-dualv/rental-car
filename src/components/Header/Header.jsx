@@ -10,9 +10,9 @@ export default function Header() {
   return (
     <header className={css.header}>
       <div className={css.headerContainer}>
-        <p className={css.logo}>
+        <NavLink to="/" className={css.logo}>
           Rental<span className={css.accentColor}>Car</span>
-        </p>
+        </NavLink>
         <nav className={css.nav}>
           <NavLink to="/" className={linkStyle}>
             Home

@@ -18,7 +18,7 @@ export default function OrderForm() {
   const commentFieldId = useId();
 
   function handleSubmit(values, actions) {
-    toast.success("Car booked!");
+    toast.success("Request successfully sent!");
     actions.resetForm();
   }
   return (
