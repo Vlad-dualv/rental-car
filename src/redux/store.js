@@ -15,10 +15,9 @@ import {
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-  key: "auth-data",
+  key: "favorites",
   version: 1,
   storage,
-  whitelist: ["token"],
 };
 
 const persistedReducer = persistReducer(persistConfig, favoritesReducer);

@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import css from "./CarItem.module.css";
 import { useNavigate } from "react-router-dom";
 
