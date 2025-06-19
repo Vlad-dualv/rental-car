@@ -1,12 +1,24 @@
 import css from "./CarItem.module.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/favorites/slice";
 
 export default function CarItem({ car }) {
   const iconHearth = "/symbol-defs.svg#icon-Vector-2";
   const activeHearth = "/symbol-defs.svg#icon-Vector-1";
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   function goToCarDetails() {
     navigate(`/catalog/${car.id}`);
+  }
+
+  const favorites = useSelector((state) => state.favorites.items);
+  const isFavorite = favorites.includes(car.id);
+
+  function handleToggleFavorite(e) {
+    e.stopPropagation();
+    dispatch(toggleFavorite(car.id));
   }
 
   return (
@@ -21,8 +33,12 @@ export default function CarItem({ car }) {
             className={css.carImage}
           />
 
-          <svg className={css.icon} aria-label="hearth icon">
-            <use href={iconHearth}></use>
+          <svg
+            className={css.icon}
+            aria-label="hearth icon"
+            onClick={handleToggleFavorite}
+          >
+            <use href={isFavorite ? activeHearth : iconHearth}></use>
           </svg>
         </div>
 
