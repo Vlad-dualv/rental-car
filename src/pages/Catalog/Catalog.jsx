@@ -27,20 +27,23 @@ export default function Catalog() {
   }
 
   return (
-    <section className={css.catalogSection}>
+    <>
+      <section className={css.catalogSection}>
+        <CarList />
+        {page < totalPages && (
+          <button
+            type="button"
+            className={css.loadButton}
+            onClick={handleLoadMore}
+            disabled={isLoading}
+          >
+            Load more
+          </button>
+        )}
+
+        {error && <p>{error}</p>}
+      </section>
       {isLoading && <Loader />}
-      {error && <p>{error}</p>}
-      <CarList />
-      {page < totalPages && (
-        <button
-          type="button"
-          className={css.loadButton}
-          onClick={handleLoadMore}
-          disabled={isLoading}
-        >
-          Load more
-        </button>
-      )}
-    </section>
+    </>
   );
 }
