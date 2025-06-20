@@ -38,6 +38,10 @@
   padding: 12px 16px;
 }
 
+.searchInput option {
+  color: #8d929a;
+}
+
 .selectIcon {
   position: absolute;
   top: 50%;
@@ -47,6 +51,11 @@
   fill: #101828;
   width: 16px;
   height: 16px;
+  transition: transform 200ms ease-in-out;
+}
+
+.selectIcon:focus {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .brandInput {
