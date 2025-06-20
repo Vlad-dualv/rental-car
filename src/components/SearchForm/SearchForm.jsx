@@ -2,6 +2,10 @@ import { Formik, Field, Form } from "formik";
 import css from "./SearchForm.module.css";
 import { useId, useState } from "react";
 import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCarBrands } from "../../redux/cars/operations";
+import { selectCarBrands } from "../../redux/cars/slice";
 
 export default function SearchForm() {
   const iconArrowDown = "/sprite.svg#icon-arrowdown";
@@ -11,6 +15,13 @@ export default function SearchForm() {
   const priceFieldId = useId();
   const mileageFieldFromId = useId();
   const mileageFieldToId = useId();
+
+  const dispatch = useDispatch();
+  const carBrands = useSelector(selectCarBrands);
+
+  useEffect(() => {
+    dispatch(fetchCarBrands());
+  }, [dispatch]);
 
   const [focusedSelect, setFocusedSelect] = useState(null);
 
@@ -40,6 +51,11 @@ export default function SearchForm() {
               <option value="" disabled selected hidden>
                 Choose brand
               </option>
+              {carBrands.map((brand) => (
+                <option key={brand} value={brand}>
+                  {brand}
+                </option>
+              ))}
             </Field>
             <svg aria-label="dropdown icon" className={css.selectIcon}>
               <use

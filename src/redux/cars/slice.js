@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCarById, fetchCars } from "./operations";
+import { fetchCarById, fetchCars, fetchCarBrands } from "./operations";
 
 const carsSlice = createSlice({
   name: "cars",
   initialState: {
     items: [],
+    brands: [],
     isLoading: false,
     error: null,
     page: 1,
@@ -49,12 +50,25 @@ const carsSlice = createSlice({
       .addCase(fetchCarById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchCarBrands.pending, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(fetchCarBrands.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.brands = action.payload;
+      })
+      .addCase(fetchCarBrands.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
 
 export const carsReducer = carsSlice.reducer;
 export const selectCars = (state) => state.cars.items;
+export const selectCarBrands = (state) => state.cars.brands;
 export const selectPage = (state) => state.cars.page;
 export const selectTotalPages = (state) => state.cars.totalPages;
 export const selectLoading = (state) => state.cars.isLoading;
