@@ -22,11 +22,60 @@
   color: #8d929a;
 }
 
+.selectWrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .searchInput {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background-color: #f7f7f7;
   border: none;
   border-radius: 12px;
+  width: 100%;
   padding: 12px 16px;
+}
+
+.selectIcon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  fill: #101828;
+  width: 16px;
+  height: 16px;
+}
+
+.brandInput {
+  width: 204px;
+}
+
+.priceInput {
+  width: 196px;
+}
+
+.mileageFieldFrom {
+  border-bottom-right-radius: 0%;
+  border-top-right-radius: 0%;
+  border-right: 1px solid #dadde1;
+}
+
+.mileageFieldTo {
+  border-bottom-left-radius: 0%;
+  border-top-left-radius: 0%;
+}
+
+.mileageFieldFrom,
+.mileageFieldTo {
+  width: 160px;
+}
+
+.mileageFieldFrom::placeholder,
+.mileageFieldTo::placeholder {
+  color: black;
 }
 
 .searchButton {

@@ -1,8 +1,11 @@
 import { Formik, Field, Form } from "formik";
 import css from "./SearchForm.module.css";
 import { useId } from "react";
+import clsx from "clsx";
 
 export default function SearchForm() {
+  const iconArrowDown = "/sprite.svg#icon-arrowdown";
+  const iconArrowUp = "/sprite.svg#icon-arrowup";
   const brandFieldId = useId();
   const priceFieldId = useId();
   const mileageFieldFromId = useId();
@@ -21,31 +24,47 @@ export default function SearchForm() {
           <label htmlFor="brandFieldId" className={css.label}>
             Car brand
           </label>
-          <Field
-            as="select"
-            name="brand"
-            id={brandFieldId}
-            className={css.searchInput}
-          >
-            <option value="" disabled selected hidden>
-              Choose brand
-            </option>
-          </Field>
+          <div className={css.selectWrapper}>
+            <Field
+              as="select"
+              name="brand"
+              id={brandFieldId}
+              className={clsx(css.searchInput, css.brandInput)}
+            >
+              <option value="" disabled selected hidden>
+                Choose brand
+              </option>
+            </Field>
+            <svg aria-label="dropdown icon" className={css.selectIcon}>
+              <use href={iconArrowDown}></use>
+            </svg>
+          </div>
         </div>
         <div className={css.searchFieldContainer}>
           <label htmlFor="priceFieldId" className={css.label}>
             Price / 1 hour
           </label>
-          <Field
-            as="select"
-            name="price"
-            id={priceFieldId}
-            className={css.searchInput}
-          >
-            <option value="" disabled selected hidden>
-              Choose a price
-            </option>
-          </Field>
+          <div className={css.selectWrapper}>
+            <Field
+              as="select"
+              name="price"
+              id={priceFieldId}
+              className={clsx(css.searchInput, css.priceInput)}
+            >
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className={css.optionPlaceholder}
+              >
+                Choose a price
+              </option>
+            </Field>
+            <svg aria-label="dropdown icon" className={css.selectIcon}>
+              <use href={iconArrowDown}></use>
+            </svg>
+          </div>
         </div>
         <div className={css.searchFieldContainer}>
           <label htmlFor="mileageFieldId" className={css.label}>
@@ -56,14 +75,14 @@ export default function SearchForm() {
               type="number"
               name="mileageFrom"
               id={mileageFieldFromId}
-              className={css.searchInput}
+              className={clsx(css.searchInput, css.mileageFieldFrom)}
               placeholder="From"
             ></Field>
             <Field
               type="number"
               name="mileageTo"
               id={mileageFieldToId}
-              className={css.searchInput}
+              className={clsx(css.searchInput, css.mileageFieldTo)}
               placeholder="To"
             ></Field>
           </div>
