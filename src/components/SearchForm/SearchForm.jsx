@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchCarBrands } from "../../redux/cars/operations";
 import { selectCarBrands } from "../../redux/cars/slice";
+import { setBrand, setPrice, setMileage } from "../../redux/filters/slice";
 
 export default function SearchForm() {
   const iconArrowDown = "/sprite.svg#icon-arrowdown";
@@ -32,6 +33,11 @@ export default function SearchForm() {
         price: "",
         mileageFrom: "",
         mileageTo: "",
+      }}
+      onSubmit={(values) => {
+        dispatch(setBrand(values.brand));
+        dispatch(setPrice(values.price));
+        dispatch(setMileage(values.mileageTo));
       }}
     >
       <Form className={css.searchForm}>
