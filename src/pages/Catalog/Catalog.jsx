@@ -17,6 +17,7 @@ import CarList from "../../components/CarList/CarList";
 import css from "./Catalog.module.css";
 import Loader from "../../components/Loader/Loader";
 import SearchForm from "../../components/SearchForm/SearchForm";
+import { setBrand, setMileage, setPrice } from "../../redux/filters/slice";
 
 export default function Catalog() {
   const dispatch = useDispatch();
@@ -35,11 +36,26 @@ export default function Catalog() {
     const matchesPrice = price
       ? Number(car.rentalPrice.replace("$", "")) <= Number(price)
       : true;
-    const matchesMileage = mileage ? car.mileage <= Number(mileage) : true;
-    return matchesBrand && matchesPrice && matchesMileage;
+    const matchesMileageFrom = mileage.from
+      ? car.mileage >= Number(mileage.from)
+      : true;
+    const matchesMileageTo = mileage.to
+      ? car.mileage <= Number(mileage.to)
+      : true;
+    return (
+      matchesBrand && matchesPrice && matchesMileageFrom && matchesMileageTo
+    );
   });
 
   const hasFethced = !isLoading && (cars.length > 0 || page > 1);
+
+  useEffect(() => {
+    return () => {
+      dispatch(setMileage(""));
+      dispatch(setPrice(""));
+      dispatch(setBrand(""));
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(fetchCars(1));

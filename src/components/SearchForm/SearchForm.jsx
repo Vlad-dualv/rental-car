@@ -37,7 +37,9 @@ export default function SearchForm() {
       onSubmit={(values) => {
         dispatch(setBrand(values.brand));
         dispatch(setPrice(values.price));
-        dispatch(setMileage(values.mileageTo));
+        dispatch(
+          setMileage({ from: values.mileageFrom, to: values.mileageTo })
+        );
       }}
     >
       <Form className={css.searchForm}>
