@@ -1,4 +1,6 @@
 import { Formik, Form, Field } from "formik";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import css from "./OrderForm.module.css";
 import clsx from "clsx";
 import { useId } from "react";
@@ -8,7 +10,8 @@ export default function OrderForm() {
   const initialValues = {
     username: "",
     email: "",
-    date: "",
+    startDate: "",
+    endDate: "",
     comment: "",
   };
 
@@ -43,13 +46,26 @@ export default function OrderForm() {
             id={emailFieldId}
             required
           />
-          <Field
-            type="text"
-            name="date"
-            placeholder="Booking date"
-            className={css.input}
-            id={dateFieldId}
-          />
+          <Field name="startDate">
+            {({ form }) => (
+              <DatePicker
+                selectsRange
+                startDate={form.values.startDate}
+                endDate={form.values.endDate}
+                onChange={(dates) => {
+                  const [start, end] = dates;
+                  form.setFieldValue("startDate", start);
+                  form.setFieldValue("endDate", end);
+                }}
+                placeholderText="Booking date"
+                className={css.input}
+                id="date-range"
+                dateFormat="dd/MM/yyyy"
+                isClearable
+                minDate={new Date()}
+              />
+            )}
+          </Field>
           <Field
             as="textarea"
             name="comment"
