@@ -17,7 +17,7 @@ export default function OrderForm() {
 
   const nameFieldId = useId();
   const emailFieldId = useId();
-  const dateFieldId = useId();
+
   const commentFieldId = useId();
 
   function handleSubmit(values, actions) {
