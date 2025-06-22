@@ -26,6 +26,12 @@ export default function SearchForm() {
 
   const [focusedSelect, setFocusedSelect] = useState(null);
 
+  function onReset() {
+    dispatch(setBrand(""));
+    dispatch(setPrice(""));
+    dispatch(setMileage(""));
+  }
+
   return (
     <Formik
       initialValues={{
@@ -44,7 +50,7 @@ export default function SearchForm() {
     >
       <Form className={css.searchForm}>
         <div className={css.searchFieldContainer}>
-          <label htmlFor="brandFieldId" className={css.label}>
+          <label htmlFor={brandFieldId} className={css.label}>
             Car brand
           </label>
           <div className={css.selectWrapper}>
@@ -56,7 +62,7 @@ export default function SearchForm() {
               onFocus={(e) => setFocusedSelect(e.target.name)}
               onBlur={() => setFocusedSelect(null)}
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled hidden>
                 Choose brand
               </option>
               {carBrands.map((brand) => (
@@ -65,7 +71,11 @@ export default function SearchForm() {
                 </option>
               ))}
             </Field>
-            <svg aria-label="dropdown icon" className={css.selectIcon}>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              className={css.selectIcon}
+            >
               <use
                 href={focusedSelect === "brand" ? iconArrowUp : iconArrowDown}
               ></use>
@@ -73,7 +83,7 @@ export default function SearchForm() {
           </div>
         </div>
         <div className={css.searchFieldContainer}>
-          <label htmlFor="priceFieldId" className={css.label}>
+          <label htmlFor={priceFieldId} className={css.label}>
             Price / 1 hour
           </label>
           <div className={css.selectWrapper}>
@@ -88,7 +98,6 @@ export default function SearchForm() {
               <option
                 value=""
                 disabled
-                selected
                 hidden
                 className={css.optionPlaceholder}
               >
@@ -108,7 +117,11 @@ export default function SearchForm() {
               <option value="140">$140</option>
               <option value="150">$150</option>
             </Field>
-            <svg aria-label="dropdown icon" className={css.selectIcon}>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              className={css.selectIcon}
+            >
               <use
                 href={focusedSelect === "price" ? iconArrowUp : iconArrowDown}
               ></use>
@@ -139,6 +152,9 @@ export default function SearchForm() {
 
         <button type="submit" className={css.searchButton}>
           Search
+        </button>
+        <button type="reset" className={css.resetButton} onClick={onReset}>
+          Reset
         </button>
       </Form>
     </Formik>

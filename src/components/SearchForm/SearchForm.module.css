@@ -106,3 +106,24 @@
     background-color: #0b44cd;
   }
 }
+
+.resetButton {
+  width: 156px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  border: 1px solid #3470ff;
+
+  background-color: inherit;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  transition: all 200ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-color: #0b44cd;
+  }
+}

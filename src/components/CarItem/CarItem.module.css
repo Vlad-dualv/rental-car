@@ -3,6 +3,7 @@
   letter-spacing: 0%;
   margin-bottom: 48px;
   transition: scale 200ms ease-in-out;
+  text-align: left;
 
   &:hover {
     scale: 1.2;
