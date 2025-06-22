@@ -28,7 +28,7 @@ export default function Catalog() {
   }
 
   return (
-    <>
+    <main>
       <section className={css.catalogSection}>
         <SearchForm />
         <CarList />
@@ -46,6 +46,6 @@ export default function Catalog() {
         {error && <p>{error}</p>}
       </section>
       {isLoading && <Loader />}
-    </>
+    </main>
   );
 }

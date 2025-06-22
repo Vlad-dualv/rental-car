@@ -39,93 +39,95 @@ export default function CarDetails() {
     return <p>Car not found</p>;
   }
   return (
-    <section className={css.carDetailsSection}>
-      <div className={css.leftSide}>
-        <img src={car.img} alt="car image" width={640} />
-        <OrderForm />
-      </div>
-      <div className={css.rightSide}>
-        <div className={css.brandAndId}>
-          <h2>
-            {car.brand} {car.model}, {car.year}
-          </h2>
-          <p className={css.carId}>Id: {car.id.slice(0, 4)}</p>
+    <main>
+      <section className={css.carDetailsSection}>
+        <div className={css.leftSide}>
+          <img src={car.img} alt="car image" width={640} />
+          <OrderForm />
         </div>
-        <div className={css.locationAndMileage}>
-          <svg className={css.icon} aria-label="location icon">
-            <use href={iconLocation}></use>
-          </svg>
-          <p>{car.address.split(", ").slice(1).join(", ")}</p>
-          <p>Mileage: {car.mileage.toLocaleString("uk-UA")} km</p>
+        <div className={css.rightSide}>
+          <div className={css.brandAndId}>
+            <h2>
+              {car.brand} {car.model}, {car.year}
+            </h2>
+            <p className={css.carId}>Id: {car.id.slice(0, 4)}</p>
+          </div>
+          <div className={css.locationAndMileage}>
+            <svg className={css.icon} aria-label="location icon">
+              <use href={iconLocation}></use>
+            </svg>
+            <p>{car.address.split(", ").slice(1).join(", ")}</p>
+            <p>Mileage: {car.mileage.toLocaleString("uk-UA")} km</p>
+          </div>
+          <h2 className={css.price}>${car.rentalPrice}</h2>
+          <p>{car.description}</p>
+          <div className={css.carInfo}>
+            <div>
+              <h3>Rental Conditions:</h3>
+              <ul>
+                {car.rentalConditions.map((condition, index) => (
+                  <li key={index}>
+                    <svg className={css.icon}>
+                      <use href={iconCheck}></use>
+                    </svg>
+                    {condition}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Car Specifications:</h3>
+              <ul>
+                <li>
+                  <svg className={css.icon}>
+                    <use href={iconCalendar}></use>
+                  </svg>
+                  Year: {car.year}
+                </li>
+                <li>
+                  <svg className={css.icon}>
+                    <use href={iconCar}></use>
+                  </svg>
+                  Type: {car.type}
+                </li>
+                <li>
+                  <svg className={css.icon}>
+                    <use href={iconFuel}></use>
+                  </svg>
+                  Fuel Consumption: {car.fuelConsumption}
+                </li>
+                <li>
+                  <svg className={css.icon}>
+                    <use href={iconGear}></use>
+                  </svg>
+                  Engine Size: {car.engineSize}
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>Accessories and functionalities:</h3>
+              <ul>
+                {car.accessories.map((accessory, index) => (
+                  <li key={index}>
+                    <svg className={css.icon}>
+                      <use href={iconCheck}></use>
+                    </svg>
+                    {accessory}
+                  </li>
+                ))}
+                {car.functionalities.map((functionality, index) => (
+                  <li key={index}>
+                    <svg className={css.icon}>
+                      <use href={iconCheck}></use>
+                    </svg>
+                    {functionality}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <h2 className={css.price}>${car.rentalPrice}</h2>
-        <p>{car.description}</p>
-        <div className={css.carInfo}>
-          <div>
-            <h3>Rental Conditions:</h3>
-            <ul>
-              {car.rentalConditions.map((condition, index) => (
-                <li key={index}>
-                  <svg className={css.icon}>
-                    <use href={iconCheck}></use>
-                  </svg>
-                  {condition}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3>Car Specifications:</h3>
-            <ul>
-              <li>
-                <svg className={css.icon}>
-                  <use href={iconCalendar}></use>
-                </svg>
-                Year: {car.year}
-              </li>
-              <li>
-                <svg className={css.icon}>
-                  <use href={iconCar}></use>
-                </svg>
-                Type: {car.type}
-              </li>
-              <li>
-                <svg className={css.icon}>
-                  <use href={iconFuel}></use>
-                </svg>
-                Fuel Consumption: {car.fuelConsumption}
-              </li>
-              <li>
-                <svg className={css.icon}>
-                  <use href={iconGear}></use>
-                </svg>
-                Engine Size: {car.engineSize}
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3>Accessories and functionalities:</h3>
-            <ul>
-              {car.accessories.map((accessory, index) => (
-                <li key={index}>
-                  <svg className={css.icon}>
-                    <use href={iconCheck}></use>
-                  </svg>
-                  {accessory}
-                </li>
-              ))}
-              {car.functionalities.map((functionality, index) => (
-                <li key={index}>
-                  <svg className={css.icon}>
-                    <use href={iconCheck}></use>
-                  </svg>
-                  {functionality}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
